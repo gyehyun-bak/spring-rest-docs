@@ -36,6 +36,7 @@ tasks.named('test') {
 
 tasks.named('asciidoctor') {
 	inputs.dir snippetsDir
+	attributes 'snippets': snippetsDir // index.adoc 내 {snippets} 위치 명시
 	dependsOn test
 }
 
