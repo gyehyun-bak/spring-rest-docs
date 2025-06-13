@@ -9,12 +9,12 @@ https://start.spring.io/ 에서 Spring Web과 Spring REST Docs를 포함한 상�
 
 1. 컨트롤러에 API를 정의하고 해당하는 테스트를 작성해 실행합니다.
 2. 테스트를 실행하면 테스트에 명시한 스펙을 포함한 .adoc 스니펫이 자동 생성됩니다.
-  - 경로: `/build/generated-snippets/{API_이름}`
+    - 경로: `/build/generated-snippets/{API_이름}`
 3. `/src/docs/asciidoc/index.adoc`에 명세하고자 하는 API와 스니펫을 추가합니다.
 4. Gradle build를 하면 API 명세가 포함된 정적 페이지가 만들어집니다.
-  - 경로:  `/build/docs/asciidoc/index.html`
+    - 경로:  `/build/docs/asciidoc/index.html`
 5. 서버 API 경로의 `/docs/index.html`로 접근할 수 있습니다.
-  - 예: `http://localhost:8080/docs/index.html`
+    - 예: `http://localhost:8080/docs/index.html`
 
 ### 주의
 
