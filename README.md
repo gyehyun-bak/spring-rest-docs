@@ -5,6 +5,10 @@ https://start.spring.io/ 에서 Spring Web과 Spring REST Docs를 포함한 상�
 
 문제점이나 개선안이 있다면 이슈로 제안해주세요.
 
+### 블로그
+
+Spring REST Docs와 구현 코드의 자세한 설명은 [블로그 포스트](https://velog.io/@gyehyunbak/Spring-REST-Docs%EB%A1%9C-API-%EB%AC%B8%EC%84%9C-%EC%9E%90%EB%8F%99%ED%99%94%ED%95%98%EA%B8%B0)를 참고해주세요.
+
 ## 사용 방법
 
 1. 컨트롤러에 API를 정의하고 해당하는 테스트를 작성해 실행합니다.
@@ -15,10 +19,6 @@ https://start.spring.io/ 에서 Spring Web과 Spring REST Docs를 포함한 상�
     - 경로:  `/build/docs/asciidoc/index.html`
 5. 서버 API 경로의 `/docs/index.html`로 접근할 수 있습니다.
     - 예: `http://localhost:8080/docs/index.html`
-
-### 주의
-
-- `index.adoc`의 변경 내용을 반영하기 위해 `.\gradlew clean build` 해주세요.
 
 ### 컨트롤러 작성
 
@@ -102,6 +102,11 @@ tasks.named('asciidoctor') {
 // Asciidoctor로 생성한 HTML 문서를 static/docs로 복사 (내장 톰캣에서 제공되게 함)
 tasks.register('copyDocs', Copy) {
 	dependsOn asciidoctor
+
+	doFirst {
+		delete "src/main/resources/static/docs/index.html" // 기존 index.html 삭제
+	}
+
 	from asciidoctor.outputDir // asciidoctor 결과물 경로
 	into "src/main/resources/static/docs" // 정적 리소스로 이동시켜 웹 접근 가능하게 함
 }
